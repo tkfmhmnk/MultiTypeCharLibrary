@@ -19,16 +19,16 @@ limitations under the License.
 #include <fstream>
 #include<sstream>
 #include <string>
-#include"UnicodeFileIO.h"
+#include"../mtcFileIO/mtcFileIO.h"
 
 using namespace std;
-using namespace UnicodeFileIO;
+using namespace mtc::FileIO;
 
 void test() {
 	basic_stringstream<char16_t> ss;
 	basic_string<char16_t> str;
 	Endian endian;
-	if (ReadString("..\\TestData\\Unicode(UTF-16,BOM).txt", ss, endian) == UnicodeFileIO::Ret::OK) {
+	if (ReadString("..\\TestData\\Unicode(UTF-16,BOM).txt", ss, endian) == Ret::OK) {
 		getline(ss, str);
 
 		WriteString("..\\TestData\\Unicode(UTF-16,BOM)_out.txt", ss, endian);
@@ -37,8 +37,8 @@ void test() {
 }
 
 bool test2() {
-	UnicodeFileIO::Manager<basic_istream<char16_t>> ism;
-	UnicodeFileIO::Manager<basic_ostream<char16_t>> osm;
+	Manager<basic_istream<char16_t>> ism;
+	Manager<basic_ostream<char16_t>> osm;
 	basic_string<char16_t> str;
 	if (ism.OpenStream("..\\TestData\\Unicode(UTF-16,BOM).txt") == Ret::OK) {
 		basic_istream<char16_t>& is = *(ism.pStream);
