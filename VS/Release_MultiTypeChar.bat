@@ -9,15 +9,15 @@ mkdir MultiTypeChar\lib\x64\Release
 mkdir MultiTypeChar\include
 mkdir MultiTypeChar\PropertySheet
 
-copy Debug\MultiTypeChar_FileIO.* MultiTypeChar\lib\x86\Debug
-copy Release\MultiTypeChar_FileIO.* MultiTypeChar\lib\x86\Release
+copy Debug\mtcFileIO.* MultiTypeChar\lib\x86\Debug
+copy Release\mtcFileIO.* MultiTypeChar\lib\x86\Release
 
-copy x64\Debug\MultiTypeChar_FileIO.* MultiTypeChar\lib\x64\Debug
-copy x64\Release\MultiTypeChar_FileIO.* MultiTypeChar\lib\x64\Release
+copy x64\Debug\mtcFileIO.* MultiTypeChar\lib\x64\Debug
+copy x64\Release\mtcFileIO.* MultiTypeChar\lib\x64\Release
 
-copy MultiTypeChar_FileIO\mtcFileIO.h MultiTypeChar\include
+copy mtcFileIO\mtcFileIO.h MultiTypeChar\include
 
-copy MultiTypeChar.props MultiTypeChar\PropertySheet
+copy mtcFileIO.props MultiTypeChar\PropertySheet
 
 del MultiTypeChar.zip
 powershell compress-archive MultiTypeChar MultiTypeChar.zip
