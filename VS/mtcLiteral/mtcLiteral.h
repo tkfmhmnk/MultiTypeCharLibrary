@@ -37,7 +37,7 @@ namespace mtc {
 /**
 	所望の型で特定の文字を取得できる関数の定義を展開する
 */
-#define MULTITYPE_CHAR(name,val)namespace mtc{ template<class CharT> constexpr CharT name() {\
+#define MULTITYPE_CHAR(name,val)template<class CharT> constexpr CharT name() {\
 		return val;\
 	};\
 	template<> constexpr char name<char>(){\
@@ -54,16 +54,14 @@ namespace mtc {
 	};\
 	template<> constexpr char8_t name<char8_t>(){\
 		return u8##val;\
-	};\
-}
+	}
 
 /**
 	文字列を複数の文字列リテラルにして展開する
 */
 #define _MULTITYPE_STR(arg) {arg , L##arg , u##arg , U##arg , u8##arg} 
 
-#define MULTITYPE_CSTR(name, ...) namespace mtc{\
-	constexpr CStrings _##name[] = {__VA_ARGS__};\
+#define MULTITYPE_CSTR(name, ...) constexpr CStrings _##name[] = {__VA_ARGS__};\
 	constexpr std::size_t name##Size = sizeof(_##name)/sizeof(CStrings);\
 	template<class CharT> constexpr const CharT* name(const int index) {\
 		return (_##name+index)->c;\
@@ -82,17 +80,18 @@ namespace mtc {
 	};\
 	template<> constexpr const char8_t* name<char8_t>(const int index) {\
 		return (_##name+index)->u8;\
-	};\
-}
+	}
 
-MULTITYPE_CHAR(Comma, ',');
-MULTITYPE_CHAR(Dot, '.');
-MULTITYPE_CHAR(CR, '\r');
-MULTITYPE_CHAR(LF, '\n');
-MULTITYPE_CHAR(Zero, '0');
-MULTITYPE_CHAR(UA, 'A');
-MULTITYPE_CHAR(Minus, '-');
-MULTITYPE_CHAR(DQuo, '\"');
-MULTITYPE_CHAR(NullChar, '\0');
+namespace mtc {
+	MULTITYPE_CHAR(Comma, ',');
+	MULTITYPE_CHAR(Dot, '.');
+	MULTITYPE_CHAR(CR, '\r');
+	MULTITYPE_CHAR(LF, '\n');
+	MULTITYPE_CHAR(Zero, '0');
+	MULTITYPE_CHAR(UA, 'A');
+	MULTITYPE_CHAR(Minus, '-');
+	MULTITYPE_CHAR(DQuo, '\"');
+	MULTITYPE_CHAR(NullChar, '\0');
+}
 
 #endif
