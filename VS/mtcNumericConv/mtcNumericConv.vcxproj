@@ -165,11 +165,17 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="mtcNumericConv.h" />
+    <ClInclude Include="mtcNumericConv_private.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="mtcNumericConv.cpp" />
+    <ClCompile Include="mtcNumericConv_ToString_cha32_t.cpp" />
+    <ClCompile Include="mtcNumericConv_ToString_char.cpp" />
+    <ClCompile Include="mtcNumericConv_ToString_char16_t.cpp" />
+    <ClCompile Include="mtcNumericConv_ToString_char8_t.cpp" />
+    <ClCompile Include="mtcNumericConv_ToString_wchar_t.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
