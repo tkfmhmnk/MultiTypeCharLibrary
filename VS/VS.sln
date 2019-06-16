@@ -8,6 +8,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mtcLiteral", "mtcLiteral\mtcLiteral.vcxproj", "{721EB795-2AAD-4C52-AB36-DD01DD0B9DA4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mtcFileIO_Test", "mtcFileIO_Test\mtcFileIO_Test.vcxproj", "{362273A5-9BC1-47DA-9CEA-21192A0F9258}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2B9523FC-A13B-4C9D-9C99-C9EB04100EC1} = {2B9523FC-A13B-4C9D-9C99-C9EB04100EC1}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
